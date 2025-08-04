@@ -1,0 +1,85 @@
+===================================================================Start Time: 20250720-165937
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.001-EP_It2sta20- Time: 20250720-170253: train: 100.00%+-0.00% (100.00% 100.00%)	 test: 97.69%+-0.08% (97.58% 97.79%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 0.001  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.01-EP_It2sta20- Time: 20250720-170605: train: 100.00%+-0.00% (100.00% 100.00%)	 test: 97.57%+-0.11% (97.41% 97.70%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 0.01  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.1-EP_It2sta20- Time: 20250720-170917: train: 99.69%+-0.15% (99.44% 99.84%)	 test: 97.25%+-0.08% (97.16% 97.35%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 0.1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.25-EP_It2sta20- Time: 20250720-171224: train: 98.32%+-0.14% (98.18% 98.48%)	 test: 96.22%+-0.08% (96.11% 96.30%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 0.25  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc1-EP_It2sta20- Time: 20250720-171531: train: 93.87%+-0.93% (92.88% 95.30%)	 test: 93.12%+-0.84% (92.49% 94.46%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc2-EP_It2sta20- Time: 20250720-171839: train: 65.37%+-8.00% (53.75% 73.85%)	 test: 66.04%+-8.15% (54.37% 74.32%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 2  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc4-EP_It2sta20- Time: 20250720-172147: train: 41.09%+-9.07% (32.59% 55.36%)	 test: 40.92%+-8.88% (32.62% 54.76%)
+EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 4  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.001-EP_It2sta30- Time: 20250720-172552: train: 99.05%+-0.04% (99.01% 99.11%)	 test: 97.22%+-0.14% (97.06% 97.45%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 0.001  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.01-EP_It2sta30- Time: 20250720-172957: train: 100.00%+-0.00% (100.00% 100.00%)	 test: 97.64%+-0.16% (97.40% 97.84%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 0.01  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.1-EP_It2sta30- Time: 20250720-173402: train: 99.91%+-0.03% (99.87% 99.94%)	 test: 97.41%+-0.06% (97.31% 97.47%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 0.1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.25-EP_It2sta30- Time: 20250720-173807: train: 98.40%+-0.55% (97.86% 99.14%)	 test: 96.60%+-0.38% (96.06% 97.01%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 0.25  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc1-EP_It2sta30- Time: 20250720-174213: train: 55.89%+-11.36% (43.09% 71.84%)	 test: 55.86%+-11.28% (43.39% 71.67%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc2-EP_It2sta30- Time: 20250720-174619: train: 32.40%+-3.61% (28.17% 37.28%)	 test: 32.64%+-3.71% (28.16% 37.23%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 2  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L3_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc4-EP_It2sta30- Time: 20250720-175024: train: 22.05%+-3.71% (17.48% 27.61%)	 test: 22.11%+-3.69% (18.30% 28.15%)
+EP_It2sta: 30  EP_It2sta2: 15  EP_b_learn: False  EP_b_sc: 4  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 3  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.001-EP_It2sta50- Time: 20250720-175639: train: 94.45%+-0.20% (94.26% 94.72%)	 test: 93.54%+-0.20% (93.38% 93.89%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 0.001  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.01-EP_It2sta50- Time: 20250720-180255: train: 97.32%+-0.19% (97.04% 97.52%)	 test: 95.54%+-0.19% (95.31% 95.80%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 0.01  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.1-EP_It2sta50- Time: 20250720-180910: train: 99.97%+-0.02% (99.96% 100.00%)	 test: 97.60%+-0.13% (97.42% 97.77%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 0.1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.25-EP_It2sta50- Time: 20250720-181526: train: 91.36%+-9.31% (76.72% 98.51%)	 test: 90.63%+-8.28% (77.41% 96.77%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 0.25  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc1-EP_It2sta50- Time: 20250720-182141: train: 25.35%+-4.52% (21.60% 32.79%)	 test: 25.31%+-4.08% (21.77% 31.84%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc2-EP_It2sta50- Time: 20250720-182758: train: 17.72%+-4.58% (11.24% 22.52%)	 test: 17.88%+-4.72% (11.35% 22.99%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 2  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L5_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc4-EP_It2sta50- Time: 20250720-183414: train: 14.37%+-3.95% (11.24% 20.60%)	 test: 14.61%+-3.77% (11.35% 20.26%)
+EP_It2sta: 50  EP_It2sta2: 25  EP_b_learn: False  EP_b_sc: 4  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 5  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.001-EP_It2sta100- Time: 20250720-184636: train: 87.21%+-0.70% (86.50% 88.20%)	 test: 87.15%+-0.92% (86.15% 88.46%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 0.001  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.01-EP_It2sta100- Time: 20250720-185908: train: 90.69%+-0.82% (89.59% 91.60%)	 test: 89.99%+-0.81% (89.00% 90.86%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 0.01  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.1-EP_It2sta100- Time: 20250720-191128: train: 95.17%+-0.29% (94.86% 95.62%)	 test: 92.54%+-0.27% (92.17% 92.89%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 0.1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.25-EP_It2sta100- Time: 20250720-192347: train: 41.56%+-25.08% (21.87% 82.04%)	 test: 41.84%+-24.88% (22.52% 81.83%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 0.25  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc1-EP_It2sta100- Time: 20250720-193603: train: 13.99%+-3.78% (11.24% 18.23%)	 test: 14.07%+-3.72% (11.35% 18.30%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 1  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc2-EP_It2sta100- Time: 20250720-194821: train: 14.12%+-2.62% (11.24% 16.96%)	 test: 14.30%+-2.62% (11.35% 17.28%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 2  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
+EP_L10_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc4-EP_It2sta100- Time: 20250720-200039: train: 14.17%+-2.40% (11.26% 16.72%)	 test: 14.23%+-2.41% (11.39% 16.94%)
+EP_It2sta: 100  EP_It2sta2: 50  EP_b_learn: False  EP_b_sc: 4  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 10  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
+
