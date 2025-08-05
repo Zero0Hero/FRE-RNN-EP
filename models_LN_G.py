@@ -6,7 +6,6 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Subset
 import torch.nn.functional as F
 
-import copy
 
 
 def dataset(task, device, bs, validbstimes=1, Norm=False):

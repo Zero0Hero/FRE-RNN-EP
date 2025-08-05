@@ -1,4 +1,5 @@
-===================================================================Start Time: 20250720-165937
+===================================================================Start Time: 20250720-165937
+
 EP_L2_MNIST_First_symm_LN10_bsc_dynamics_LyapunovE_E-EP_b_sc0.001-EP_It2sta20- Time: 20250720-170253: train: 100.00%+-0.00% (100.00% 100.00%)	 test: 97.69%+-0.08% (97.58% 97.79%)
 EP_It2sta: 20  EP_It2sta2: 10  EP_b_learn: False  EP_b_sc: 0.001  EP_f_sc: 1  EP_nudge: 0.1  EP_symm_W: True  adam: True  biasLearning: False  nL_hidd: 2  n_hidd: 64  n_input: 784  n_out: 10  save: True  sc_back: 1  sc_bias: 0  sc_forward: 1  train_batch_size: 500  train_eta_global: 0.001  train_n_epochs: 50  train_task: MNIST  train_tmethod: EP  
 

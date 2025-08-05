@@ -86,7 +86,7 @@ class FNN_LN(torch.nn.Module):
         self.EP_b_learn_replay = config.EP_b_learn_replay if hasattr(config, 'EP_b_learn_replay') else False
         # self.Wr=[]
         for _ in range(self.nL_hidd+1):
-            n_hidd = self.n_hidd if _ < self.nL_hidd else self.n_out  # 最后一层为输出层
+            n_hidd = self.n_hidd if _ < self.nL_hidd else self.n_out  # 
             W = (torch.rand(n_input, n_hidd,device=self.device)*2-1)   * self.sc_forward* np.sqrt(6.0/(n_input+n_hidd) )
             b = (torch.rand(n_hidd, device=self.device)*2-1)               * self.sc_bias       * 1.0/np.sqrt(n_input )
             E = (torch.rand(n_hidd, n_input,device=self.device)*2-1)   * self.sc_back   * np.sqrt(6.0/(n_input+n_hidd) )
@@ -99,7 +99,7 @@ class FNN_LN(torch.nn.Module):
         self.Wsc = self.EP_f_sc*torch.triu(torch.ones_like(self.Wa,device=self.device), diagonal=1) + self.EP_b_sc*torch.tril(torch.ones_like(self.Wa,device=self.device), diagonal=-1)
         self.ba = torch.zeros([dim], device=self.device)
         self.update_Wa()
-        # Adam优化器参数
+        # Adam
         self.opt_m_w = [torch.zeros_like(layer[0],device=self.device) for layer in self.layers]
         self.opt_v_w = [torch.zeros_like(layer[0],device=self.device) for layer in self.layers]
         self.opt_m_b = [torch.zeros_like(layer[1],device=self.device) for layer in self.layers]
@@ -110,9 +110,9 @@ class FNN_LN(torch.nn.Module):
         self.opt_beta1, self.opt_beta2 = 0.9, 0.999
         self.opt_epsilon = 1e-8
         self.opt_eta = config.train_eta_global
-        self.opt_t = 0  # 时间步
+        self.opt_t = 0  # 
 
-        # 存储梯度
+        # 
         self.grads = [None] * len(self.layers)
 
         ##
