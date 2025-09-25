@@ -1,6 +1,10 @@
 # Toward Practical Equilibrium Propagation: Brain-inspired Recurrent Neural Network with Feedback Regulation and Residual Connections
 *Developed by CTTC, SME, USTC*  
 
+Paper at  [text](https://arxiv.org/abs/2508.11659)
+
+Inspired by the structure and dynamics of the brain, we propose a biologically plausible Feedback-regulated RE-sidual recurrent neural network (FRE-RNN) and study its learning performance in EP framework. 
+
 ## Environments
 ```
 python = 3.9.20
@@ -58,6 +62,7 @@ It indicates that the end time of first experiment (L2, b_sc0.001, i.e. 2-hidden
 ## Figure S8
 
 'Layered_LN+_AGT_P.ipynb'
+
 
 
 
