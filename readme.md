@@ -1,5 +1,5 @@
 # Toward Practical Equilibrium Propagation: Brain-inspired Recurrent Neural Network with Feedback Regulation and Residual Connections
-
+*Developed by CTTC, SME, USTC*  
 
 ## Environments
 ```
@@ -58,5 +58,6 @@ It indicates that the end time of first experiment (L2, b_sc0.001, i.e. 2-hidden
 ## Figure S8
 
 'Layered_LN+_AGT_P.ipynb'
+
 
 
