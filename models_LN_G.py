@@ -6,6 +6,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader, Subset
 import torch.nn.functional as F
 
+import copy
 
 
 def dataset(task, device, bs, validbstimes=1, Norm=False):
@@ -238,6 +239,7 @@ class EPNN_LN(torch.nn.Module):
         if ret_zall: return SR, torch.mean(e_sum[:self.EP_It2sta]), torch.mean(e_sum[t_e//2:]), zall
         else: return SR, torch.mean(e_sum[:self.EP_It2sta]), torch.mean(e_sum[t_e//2:])
 
+        
     def ret_error(self):
         dim = sum(self.nodes[1:])        
         error = np.zeros(dim)

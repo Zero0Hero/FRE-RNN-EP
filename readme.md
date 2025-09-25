@@ -1,9 +1,4 @@
 # Toward Practical Equilibrium Propagation: Brain-inspired Recurrent Neural Network with Feedback Regulation and Residual Connections
-*Developed by CTTC, SME, USTC*  
-
-Paper at  
-
-Inspired by the structure and dynamics of the brain, we propose a biologically plausible Feedback-regulated RE-sidual recurrent neural network (FRE-RNN) and study its learning performance in EP framework. 
 
 
 ## Environments
@@ -36,17 +31,32 @@ It indicates that the end time of first experiment (L2, b_sc0.001, i.e. 2-hidden
 
 'Layered_L3_bs20_lrsame.ipynb': With layered architecture (3-hidden-layer), SGD, same learning rate for all layers.
 
-'CNN_B/EP_com_MNIST.ipynb': With convolutinal architecture (32c-64c-10, same as the P-EP), the results of B/EP. 
+'CNN_B/EP_com_MNIST.ipynb': With convolutinal architecture (32c-64c-10, same as the P-EP), the results of B/EP with feedback scaling $\beta_i=0.01, 0.1, 1$. 
 
 
 ## Table 2 and Table S1
 
 'Layered_LN_(a)symm.ipynb': With layered architecture, Adam optimizer and (a)symmetric weights, the result of EP.
 
-'Layered_L10_res/AGT.ipynb': With layered architecture, Adam optimizer and residual connections or arbitrary graph topologies (AGT), the result of EP.
+'Layered_L10_res/AGT/LN+_res.ipynb': With layered architecture, Adam optimizer and residual connections or arbitrary graph topologies (AGT), the result of EP.
+
+'CNN_MNIST_comBP_c2fc1benchmark.ipynb': With convolutinal architecture (32c-64c-10), the results of B/EP. 
+
+'CNN_CIFAR10_comBP_c3fc1benchmark.ipynb': With convolutinal architecture (32c-64c-128c-10), the results of B/EP. 
 
 
 ## Figure 4 
 
 'Layered_ffsc_fbsc_2dplot.ipynb': The influence of feedforward scaling $α_i$ and feedback scaling $β_i$ on accuracy of MNIST classification. 
+
+
+## Figure 5 
+
+'Layered_L3bsc_Ctime_MLE_SR.ipynb' 
+
+
+## Figure S8
+
+'Layered_LN+_AGT_P.ipynb'
+
 

@@ -86,11 +86,14 @@ class FNN_LN(torch.nn.Module):
         self.EP_b_learn_replay = config.EP_b_learn_replay if hasattr(config, 'EP_b_learn_replay') else False
         # self.Wr=[]
         for _ in range(self.nL_hidd+1):
-            n_hidd = self.n_hidd if _ < self.nL_hidd else self.n_out  # 
+            n_hidd = self.n_hidd if _ < self.nL_hidd else self.n_out  # 最后一层为输出层
             W = (torch.rand(n_input, n_hidd,device=self.device)*2-1)   * self.sc_forward* np.sqrt(6.0/(n_input+n_hidd) )
             b = (torch.rand(n_hidd, device=self.device)*2-1)               * self.sc_bias       * 1.0/np.sqrt(n_input )
             E = (torch.rand(n_hidd, n_input,device=self.device)*2-1)   * self.sc_back   * np.sqrt(6.0/(n_input+n_hidd) )
-
+            # if _ <self.nL_hidd:
+            #     Wr = torch.rand(n_hidd, n_hidd, device=self.device)
+            #     Wr = Wr / torch.abs( torch.linalg.eigvals(Wr)) .max() * 0.25
+                # self.Wr.append(Wr)
             self.layers.append([W, b, E])
             n_input = n_hidd
 
@@ -99,7 +102,7 @@ class FNN_LN(torch.nn.Module):
         self.Wsc = self.EP_f_sc*torch.triu(torch.ones_like(self.Wa,device=self.device), diagonal=1) + self.EP_b_sc*torch.tril(torch.ones_like(self.Wa,device=self.device), diagonal=-1)
         self.ba = torch.zeros([dim], device=self.device)
         self.update_Wa()
-        # Adam
+        # Adam优化器参数
         self.opt_m_w = [torch.zeros_like(layer[0],device=self.device) for layer in self.layers]
         self.opt_v_w = [torch.zeros_like(layer[0],device=self.device) for layer in self.layers]
         self.opt_m_b = [torch.zeros_like(layer[1],device=self.device) for layer in self.layers]
@@ -110,15 +113,18 @@ class FNN_LN(torch.nn.Module):
         self.opt_beta1, self.opt_beta2 = 0.9, 0.999
         self.opt_epsilon = 1e-8
         self.opt_eta = config.train_eta_global
-        self.opt_t = 0  # 
+        self.opt_t = 0  # 时间步
 
-        # 
+        # 存储梯度
         self.grads = [None] * len(self.layers)
 
         ##
         if self.train_tmethod == 'FA':
             self.forward = self.forward_FA
             self.backward = self.backward_FA
+        # elif self.train_tmethod == 'PC':
+        #     self.forward = self.forward_PC 
+        #     self.backward = self.backward_PC
         elif self.train_tmethod == 'LRA':
             self.forward = self.forward_LRA 
             self.backward = self.backward_LRA
@@ -128,7 +134,12 @@ class FNN_LN(torch.nn.Module):
         elif self.train_tmethod == 'EP':
             self.forward = self.forward_EP 
             self.backward = self.backward_EP
-
+        # elif self.train_tmethod == 'EPL':
+        #     self.forward = self.forward_EPL 
+        #     self.backward = self.backward_EPL
+        # elif self.train_tmethod == 'LRAL':
+        #     self.forward = self.forward_LRAL 
+        #     self.backward = self.backward_LRAL
     ##
     #
     def forward_BP(self, x):
@@ -148,13 +159,13 @@ class FNN_LN(torch.nn.Module):
         output = output.to(self.device)
         m = y.size(0)
         ef = output - y  # dzf
-        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m]  # 
+        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m]  # 输出层梯度
 
         for iL in range(len(self.layers) - 2, -1, -1):  
             e = ef.mm(self.layers[iL+1][0].t()) * self.fd(self.h[iL+1])  
                 
-            self.grads[iL] = [self.z[iL].t().mm(e) / m, e.sum(0) / m]  # 
-            ef = e  # 
+            self.grads[iL] = [self.z[iL].t().mm(e) / m, e.sum(0) / m]  # 当前层的权重和偏置梯度
+            ef = e  # 更新ef为上一层的误差
     #
     def forward_FA(self, x):
         x = x.to(self.device)
@@ -173,13 +184,13 @@ class FNN_LN(torch.nn.Module):
         output = output.to(self.device)
         m = y.size(0)
         ef = output - y  # dzf
-        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m]  # 
+        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m]  # 输出层梯度
 
         for iL in range(len(self.layers) - 2, -1, -1):   
             e = ef.mm(self.layers[iL+1][2]) * self.fd(self.h[iL+1])  
                 
-            self.grads[iL] = [self.z[iL].t().mm(e) / m, e.sum(0) / m]  # 
-            ef = e  # 
+            self.grads[iL] = [self.z[iL].t().mm(e) / m, e.sum(0) / m]  # 当前层的权重和偏置梯度
+            ef = e  # 更新ef为上一层的误差
 
     #
     def forward_LRA(self, x):
@@ -201,13 +212,13 @@ class FNN_LN(torch.nn.Module):
         self.y = copy.deepcopy(self.h)
 
         ef = output - y  # dzf
-        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m, (+self.LRA_beta * ef.mm(self.layers[-1][2])).t().mm(ef) /m]  # 
+        self.grads[-1] = [self.z[-2].t().mm(ef) / m, ef.sum(0) / m, (+self.LRA_beta * ef.mm(self.layers[-1][2])).t().mm(ef) /m]  # 输出层梯度
 
         for iL in range(len(self.layers) - 2, -1, -1):   
             self.y[iL+1] = self.f( self.y[iL+1] - self.LRA_beta * ef.mm(self.layers[iL+1][2])  )
             e =  self.z[iL+1] - self.y[iL+1]
             self.grads[iL] = [self.z[iL].t().mm(e) / m, e.sum(0) / m, (+self.LRA_beta * ef.mm(self.layers[iL+1][2]) ).t().mm(ef)/m]  # 
-            ef = e  #
+            ef = e  # 更新ef为上一层的误差
 
     #
     def forward_EP(self, x):
@@ -294,6 +305,100 @@ class FNN_LN(torch.nn.Module):
         if ret_zall: return SR, torch.mean(e_sum[:self.EP_It2sta]), torch.mean(e_sum[t_e//2:]), zall
         else: return SR, torch.mean(e_sum[:self.EP_It2sta]), torch.mean(e_sum[t_e//2:])
 
+    def Lyapunov_EP_multisamples(self, x, y=None, ftmle_FT=0, t_e=200, ret_zall=False, delta_conv=1e-6):
+        """
+        Batch version of Lyapunov / spectral radius computation.
+        Args:
+            x: [B, input_dim]
+            y: unused (kept for compatibility)
+            t_e: number of iterations
+            ret_zall: if True, return zall with shape [B, dim, t_e]
+            delta_conv: convergence threshold (state diff norm < delta_conv for 3 consecutive steps)
+        Returns:
+            SR: scalar, spectral radius of (Wa * Wsc)
+            lyap_pre: [B] — mean of e_sum over early steps (0:self.EP_It2sta)
+            lyap_post: [B] — mean of e_sum over late steps (t_e//2:)
+            conv_time: [B] — convergence time per sample (-1 if not converged)
+            (optional) zall: [B, dim, t_e] if ret_zall=True
+        """
+        device = self.device
+        B = x.size(0)
+        dim = self.nL_hidd * self.n_hidd  # keep original definition of dim
+        
+        self.Wsc = self.EP_f_sc*torch.triu(torch.ones_like(self.Wa,device=self.device), diagonal=1) + self.EP_b_sc*torch.tril(torch.ones_like(self.Wa,device=self.device), diagonal=-1)
+        self.ba = torch.zeros([dim], device=self.device)
+        self.update_Wa()
+
+        # Initialize random perturbation vectors delta_x: one per sample, normalized
+        delta_x = torch.rand(B, dim, device=device)
+        delta_norm = torch.norm(delta_x, dim=1, keepdim=True) + 1e-12
+        delta_x = delta_x / delta_norm  # [B, dim]
+
+        # Store log(norm) per iteration per sample
+        e_sum = torch.zeros(B, t_e, device=device)
+
+        # Optional: store z across all timesteps
+        if ret_zall:
+            zall = torch.zeros(B, dim, t_e, device=device)
+
+        # Initialize network states (batch-wise)
+        self.hb = torch.zeros([B, self.Wa.size(0)], device=device)
+        self.z  = torch.zeros([B, self.Wa.size(0)], device=device)
+        self.h  = torch.zeros([B, self.Wa.size(0)], device=device)
+
+        # Fill hb using input-to-hidden mapping
+        self.hb[:, :self.n_hidd] = x.mm(self.layers[0][0])
+
+        # Convergence tracking: previous z, counters, and times (-1 = not converged yet)
+        prev_z = torch.zeros_like(self.z)
+        conv_counter = torch.zeros(B, dtype=torch.int32, device=device)
+        conv_time = -torch.ones(B, dtype=torch.int32, device=device)
+
+        # Precompute recurrent weight matrix
+        mat = self.Wa * self.Wsc  # [dim, dim]
+
+        for it in range(t_e):
+            # State update
+            self.h = self.z.mm(mat) + self.hb + self.ba  # [B, dim]
+            self.z = self.f(self.h)                      # [B, dim]
+            if ret_zall:
+                zall[:, :, it] = self.z
+
+            # Activation derivative
+            fd_h = self.fd(self.h)  # [B, dim]
+
+            # Perturbation update: delta <- (delta @ mat) * fd_h
+            delta_x = torch.matmul(delta_x, mat)       # [B, dim]
+            delta_x = delta_x * fd_h                   # [B, dim]
+
+            # Record and renormalize
+            norms = torch.norm(delta_x, dim=1) + 1e-12  # [B]
+            e_sum[:, it] = torch.log(norms)             # [B]
+            delta_x = delta_x / norms.unsqueeze(1)      # [B, dim]
+
+            # Convergence check: difference between consecutive z states
+            diff_norm = torch.norm(self.z - prev_z, dim=1)  # [B]
+            smaller = (diff_norm < delta_conv)
+            conv_counter = torch.where(smaller, conv_counter + 1, torch.zeros_like(conv_counter))
+            newly_conv = (conv_counter >= 3) & (conv_time == -1)
+            if newly_conv.any():
+                conv_time[newly_conv] = it  # record time when condition is met
+
+            prev_z = self.z.clone()
+
+        # Spectral radius (network-level, not per sample)
+        SR = float(torch.max(torch.abs(torch.linalg.eigvals(mat))).item())
+
+        # Compute Lyapunov exponents (per sample)
+        FT = self.EP_It2sta if ftmle_FT==0 else ftmle_FT
+        ftmle  = torch.mean(e_sum[:, :self.EP_It2sta], dim=1)      # [B]
+        lyap_post = torch.mean(e_sum[:, t_e // 2:], dim=1) # [B]
+
+        if ret_zall:
+            return SR, ftmle, lyap_post, conv_time, zall
+        else:
+            return SR, ftmle, lyap_post, conv_time
+        
     def ret_error(self):
         dim = self.nL_hidd*self.n_hidd +self.n_out        
         error = np.zeros(dim)
@@ -389,6 +494,43 @@ def rand_sparse_matrix(rows, cols, connection_rate):
     return sparse_matrix
 
 
+def Aindx2Nrange(numnodes, div, Aindx):
+    node_indx = []
+    nodes_per_div = numnodes // abs(div)
+    if isinstance(Aindx, list) == False: Aindx = [Aindx]
+
+    if div == 1: node_indx = range(numnodes)
+    elif div == 2:
+        for indx in Aindx:
+            # Calculate the start and end indices for the specified division
+            if (indx == 1) or (indx == 2): indx = 1 
+            elif (indx == 3) or (indx == 4): indx = 2 
+            start_idx = (indx-1) * nodes_per_div
+            end_idx = indx * nodes_per_div - 1
+            
+            # Create the output range
+            node_indx.extend(range(start_idx, end_idx + 1))
+    elif div == -2:
+        for indx in Aindx:
+            # Calculate the start and end indices for the specified division
+            if (indx == 1) or (indx == 4): indx = 1 
+            elif (indx == 3) or (indx == 2): indx = 2 
+            start_idx = (indx-1) * nodes_per_div
+            end_idx = indx * nodes_per_div - 1
+            
+            # Create the output range
+            node_indx.extend(range(start_idx, end_idx + 1))
+    else :
+        for indx in Aindx:
+            # Calculate the start and end indices for the specified division
+            start_idx = (indx-1) * nodes_per_div
+            end_idx = indx * nodes_per_div - 1
+            
+            # Create the output range
+            node_indx.extend(range(start_idx, end_idx + 1))
+
+
+    return node_indx
 
 
 def adam_update(m, v, dw, beta1, beta2, t, epsilon=1e-8):
